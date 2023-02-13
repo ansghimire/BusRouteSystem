@@ -1,0 +1,51 @@
+{% load render_table from django_tables2 %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+  {% render_table table %}
+
+  {% comment %} <table border = 2>
+    <thead>
+      <tr>
+        <td>
+          Bus Name
+        </td>
+        <td>
+          Bus Number
+        </td>
+        <td>
+          No of routes this bus runs on
+        </td>
+      <tr>
+    </thead>
+    <tbody> {% endcomment %}
+     
+
+      {% comment %} {% for bus in buses %}
+      <tr>
+        <td>{{bus.bus_name}}</td>
+        <td>{{bus.bus_number}}</td>
+        {% if  bus.num_of_routes == 0%}
+           <td>Route not assign</td>
+        {% else %}
+          <td>{{bus.num_of_routes}}<td>
+        {% endif %}
+
+      </tr>  
+      {% endfor %} {% endcomment %}
+
+      
+     
+    {% comment %} </tbody>
+  </table> {% endcomment %}
+
+ 
+</body>
+</html>

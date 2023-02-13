@@ -1,0 +1,60 @@
+{% load render_table from django_tables2 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Routes</title>
+</head>
+<body>
+  
+  {% if items %}
+  {% render_table table %}
+  {% else %}
+    <h1>Nothing to show</h1>
+  {% endif %}
+{% comment %} {% if available_routes %}
+  <table border = 2>
+    <thead>
+      <tr>
+        <td>
+          Route name
+        </td>
+        <td>
+          Route Number
+        </td>
+        <td>
+          From time
+        </td>
+        <td>
+          To time
+        </td>
+      <tr>
+    </thead>
+     <tbody>
+      
+
+      {% for route in available_routes %}
+      <tr>
+        <td>{{route.route}}</td>
+        <td>{{route.route.route_number}}</td>
+        <td>{{route.from_time}}</td>
+        <td>{{route.to_time}}</td>
+
+      </tr>  
+      {% endfor %}
+
+      
+      
+    </tbody> 
+</table>
+
+{%else%}
+  <h1>No Routes Found</h1>
+
+{% endif %} {% endcomment %}
+ 
+</body>
+</html>

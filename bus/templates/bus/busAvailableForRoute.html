@@ -1,0 +1,62 @@
+{% load render_table from django_tables2 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Available for the route.to_time</title>
+</head>
+<body>
+
+
+  {% if items %}
+  {% render_table table %}
+  {% else %}
+    <h1>Nothing to show</h1>
+  {% endif %}
+
+{% comment %} {% if available_bus_in_this_particular_routes %}
+  <table border = 2>
+    <thead>
+      <tr>
+        <td>
+          Bus name
+        </td>
+        <td>
+          Bus number
+        </td>
+        <td>
+          From time
+        </td>
+        <td>
+          To time
+        </td>
+      <tr>
+    </thead>
+     <tbody>
+      
+
+      {% for route in available_bus_in_this_particular_routes %}
+      <tr>
+        <td>{{route.bus.bus_name}}</td>
+        <td>{{route.bus.bus_number}}</td>
+        <td>{{route.from_time}}</td>
+        <td>{{route.to_time}}</td>
+
+      </tr>  
+      {% endfor %}
+
+      
+      
+    </tbody> 
+</table>
+
+{%else%}
+  <h1>No Bus Found on this Route</h1>
+
+{% endif %} {% endcomment %}
+ 
+</body>
+</html>
